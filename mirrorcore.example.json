@@ -1,0 +1,23 @@
+{
+  "source": "./infra",
+  "exclude": [".git", "*.log", "__pycache__", "*.tmp"],
+  "delete_extraneous": true,
+  "workers": 4,
+  "state_dir": ".mirrorcore",
+  "interval": 60,
+  "template_suffix": ".tpl",
+  "targets": [
+    {
+      "name": "replica-a",
+      "type": "local",
+      "path": "./replicas/a",
+      "vars": { "ENV": "staging" }
+    },
+    {
+      "name": "replica-b",
+      "type": "local",
+      "path": "./replicas/b",
+      "vars": { "ENV": "production" }
+    }
+  ]
+}
